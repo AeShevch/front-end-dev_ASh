@@ -5,9 +5,72 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="dist/css/bundle.css">
-        <title>Document</title>
+        <title>front-end-dev_ASh</title>
     </head>
 <body>
+    <section class="c-constructor">
+        <form class="c-constructor__form c-form"
+              name="constructor-form"
+              aria-label="Configures The MacBook configuration.">
+            <div class="c-form__tabs c-tabs js-tabs-container">
+                <nav class="c-tabs__nav"
+                     role="tablist"
+                     aria-label="Switches configurator tabs">
+                    <button class="js-open-tab c-tabs__switch c-tabs__switch_active"
+                            id="c-tab-type-btn"
+                            type="button"
+                            role="tab"
+                            aria-selected="true"
+                            tabindex="-1"
+                            aria-controls="c-tab-type">
+                        Тип устройства
+                    </button>
+                    <button class="js-open-tab c-tabs__switch"
+                            id="c-tab-props-btn"
+                            type="button"
+                            role="tab"
+                            aria-selected="false"
+                            tabindex="0"
+                            aria-controls="c-tab-props">
+                        Характеристики
+                    </button>
+                    <button class="js-open-tab c-tabs__switch"
+                            id="c-tab-set-btn"
+                            type="button"
+                            role="tab"
+                            aria-selected="false"
+                            tabindex="0"
+                            aria-controls="c-tab-set">
+                        Комплектация
+                    </button>
+                </nav>
+                <section class="js-tab-content c-tabs__content c-tabs__content_active"
+                         id="c-tab-type"
+                         tabindex="0"
+                         role="tabpanel"
+                         aria-labelledby="c-tab-type-btn">
+                    Тип устройстваТип устройстваТип устройстваТип устройстваТип устройства
+                </section>
+                <section class="js-tab-content c-tabs__content"
+                         id="c-tab-props"
+                         tabindex="0"
+                         role="tabpanel"
+                         aria-labelledby="c-tab-props-btn"
+                         hidden>
+                    ХарактеристикиХарактеристикиХарактеристикиХарактеристики
+                </section>
+                <section class="js-tab-content c-tabs__content"
+                         tabindex="0"
+                         role="tabpanel"
+                         aria-labelledby="c-tab-set-btn"
+                         id="c-tab-set"
+                         hidden>
+                    КомплектацияКомплектацияКомплектацияКомплектация
+                </section>
+            </div>
+        </form>
+    </section>
 
+    <script src="./dist/js/bundle.js"></script>
 </body>
 </html>
