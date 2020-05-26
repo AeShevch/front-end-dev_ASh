@@ -9,6 +9,9 @@
   "author": "Shevchenko",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-latest": "^6.24.1",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
@@ -17,7 +20,10 @@
     "gulp-livereload": "^4.0.1",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "prettier": "^2.0.5",
+    "webpack": "^4.43.0",
+    "webpack-stream": "^5.2.1"
   },
   "browserslist": [
     "last 4 version"

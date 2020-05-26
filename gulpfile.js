@@ -8,6 +8,10 @@ const gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     livereload = require('gulp-livereload');
 
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
+const webpackConfig = require('./webpack.config.js');
+
 function scss() {
     return gulp.src(
         [
@@ -30,6 +34,12 @@ function scss() {
         .pipe(livereload());
 }
 
+const js = () => (
+  gulp.src('src/js/App.js')
+    .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(gulp.dest('./dist/js'))
+);
+
 function html() {
     return gulp.src('index.html')
         .pipe(livereload());
@@ -46,7 +56,7 @@ function watch() {
     livereload.listen();
     gulp.watch('src/scss/*.scss', scss);
     gulp.watch('index.html', html);
-    // gulp.watch('src/script.js', js);
+    gulp.watch('src/js/*.js', js);
 }
 
 gulp.task('watch', watch);
