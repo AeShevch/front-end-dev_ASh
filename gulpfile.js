@@ -1,16 +1,16 @@
-const gulp = require("gulp"),
-  sass = require("gulp-sass"),
-  autoprefixer = require("gulp-autoprefixer"),
-  cleanCSS = require("gulp-clean-css"),
-  sourcemaps = require("gulp-sourcemaps"),
-  del = require("del"),
-  concat = require("gulp-concat"),
-  plumber = require("gulp-plumber"),
-  livereload = require("gulp-livereload");
-
+const gulp = require("gulp");
+const sass = require("gulp-sass");
+const autoprefixer = require("gulp-autoprefixer");
+const cleanCSS = require("gulp-clean-css");
+const sourcemaps = require("gulp-sourcemaps");
+const del = require("del");
+const concat = require("gulp-concat");
+const plumber = require("gulp-plumber");
+// const livereload = require("gulp-livereload");
 const webpack = require("webpack");
 const webpackStream = require("webpack-stream");
 const webpackConfig = require("./webpack.config.js");
+const browserSync = require("browser-sync").create();
 
 function scss() {
   return gulp
@@ -31,17 +31,18 @@ function scss() {
     .pipe(concat("bundle.css"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest("dist/css"))
-    .pipe(livereload());
+    .pipe(browserSync.stream());
 }
 
 const js = () =>
   gulp
     .src("src/js/App.js")
     .pipe(webpackStream(webpackConfig), webpack)
-    .pipe(gulp.dest("./dist/js"));
+    .pipe(gulp.dest("./dist/js"))
+    .pipe(browserSync.stream());
 
 function html() {
-  return gulp.src("index.html").pipe(livereload());
+  return gulp.src("index.html").pipe(browserSync.stream());
 }
 
 function clean() {
@@ -52,7 +53,11 @@ gulp.task("scss", scss);
 gulp.task("html", html);
 
 function watch() {
-  livereload.listen();
+  browserSync.init({
+    server: {
+      baseDir: "./",
+    },
+  });
   gulp.watch("src/scss/*.scss", scss);
   gulp.watch("index.html", html);
   gulp.watch("src/js/*.js", js);
