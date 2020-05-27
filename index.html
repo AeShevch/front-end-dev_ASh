@@ -44,7 +44,7 @@
                         Комплектация
                     </button>
                 </nav>
-                <section class="js-tab-content c-tabs__content c-tabs__content_active"
+                <section class="js-tab-content c-tabs__content c-tabs__content_active js-tab-type"
                          id="c-tab-type"
                          tabindex="0"
                          role="tabpanel"
@@ -73,14 +73,17 @@
 
     <template class="js-fieldset-template">
         <fieldset class="c-form__fieldset c-fieldset js-fieldset">
-            <legend class="c-fieldset__title"></legend>
-            <div class="c-fieldset__inner">
-                <label class="c-fieldset__label js-radio-label">
-                    <input type="radio" name="" id="">
-                </label>
-            </div>
+            <legend class="c-fieldset__title js-fieldset-title"></legend>
+            <div class="c-fieldset__inner js-fieldset-inner"></div>
         </fieldset>
     </template>
+
+    <template class="js-field-template">
+        <label class="c-fieldset__label js-radio-label">
+            <input class="js-radio-input" type="radio" name="" id="">
+        </label>
+    </template>
+
     <script src="./dist/js/bundle.js"></script>
 </body>
 </html>
