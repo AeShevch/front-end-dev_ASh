@@ -13,12 +13,11 @@ export default class Field {
     let fieldElement = this._template.cloneNode(true);
     fieldElement.querySelector("label").append(item.text);
     const inputElement = fieldElement.querySelector("input");
-    if (item.add === false) inputElement.disabled = true;
     inputElement.id = item.id;
     inputElement.name = this._prop.code;
     inputElement.value = item.text;
+    if (item.add === false) inputElement.value = "";
 
     return fieldElement;
   }
-
 }
