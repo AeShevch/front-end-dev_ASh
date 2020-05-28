@@ -1,3 +1,6 @@
+/**
+ * Components configurations
+ */
 const FORM_NAME = "constructor-form";
 const RESULTS_ELEMENT_SELECTOR = ".js-form-results";
 
@@ -5,7 +8,6 @@ export default class Form {
   constructor() {
     this._container = document.forms[FORM_NAME];
     this._resultsElement = document.querySelector(RESULTS_ELEMENT_SELECTOR);
-
   }
 
   init() {
