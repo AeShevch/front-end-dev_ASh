@@ -4,11 +4,7 @@ export default class Data {
   }
 
   receive() {
-    // return fetch(this._jsonUrl, {
-    //   method: 'PATCH',
-    //     headers: {
-    //       mode: 'cors',
-    //   }}).then((response) => {
+    // return fetch(this._jsonUrl).then((response) => {
     //     return response.json();
     //   })
 
