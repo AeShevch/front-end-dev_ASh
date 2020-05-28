@@ -2,12 +2,14 @@
  * Components configurations
  */
 const FORM_NAME = "constructor-form";
-const RESULTS_ELEMENT_SELECTOR = ".js-form-results";
+const RESULTS_PROPS_ELEMENT_SELECTOR = ".js-form-results-props";
+const RESULTS_SET_ELEMENT_SELECTOR = ".js-form-results-set";
 
 export default class Form {
   constructor() {
     this._container = document.forms[FORM_NAME];
-    this._resultsElement = document.querySelector(RESULTS_ELEMENT_SELECTOR);
+    this._resultsPropsElement = document.querySelector(RESULTS_PROPS_ELEMENT_SELECTOR);
+    this._resultsSetElement = document.querySelector(RESULTS_SET_ELEMENT_SELECTOR);
   }
 
   init() {
@@ -15,8 +17,19 @@ export default class Form {
   }
 
   _getFormData() {
-    const resultsArr = Array.from(new FormData(this._container).values());
-    return resultsArr.join(", ");
+    const formData = Array.from(new FormData(this._container).values());
+    const results = { props: [], set: [] };
+
+    formData.forEach((item) => {
+      const value = JSON.parse(item);
+      if (value.bundle) {
+        if (value.add) results.set.push(value.text);
+      } else {
+        results.props.push(value.text);
+      }
+    });
+
+    return results;
   }
 
   /**
@@ -24,6 +37,8 @@ export default class Form {
    * Updates the result value
    */
   _onFormChange() {
-    this._resultsElement.textContent = this._getFormData();
+    const results = this._getFormData();
+    this._resultsPropsElement.textContent = results.props.join(', ');
+    this._resultsSetElement.textContent = results.set.length ? "В комплекте: " + results.set.join(', ') : "";
   }
 }

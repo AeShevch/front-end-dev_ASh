@@ -15,8 +15,8 @@ export default class Field {
     const inputElement = fieldElement.querySelector("input");
     inputElement.id = item.id;
     inputElement.name = this._prop.code;
-    inputElement.value = item.text;
-    if (item.add === false) inputElement.value = "";
+    inputElement.value = JSON.stringify(item);
+    // if (item.add === false) inputElement.value = "";
 
     return fieldElement;
   }
