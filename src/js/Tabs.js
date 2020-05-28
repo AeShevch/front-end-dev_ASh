@@ -4,7 +4,7 @@ const ACTIVE_TAB_CONTROL_MOD = "c-tabs__switch_active";
 const ACTIVE_TAB_MOD = "c-tab__link--active";
 // CSS selector of tab buttons
 const TAB_BTNS_SELECTOR = ".js-open-tab";
-//  CSS selector of tabs
+// CSS selector of tabs
 const TABS_SELECTOR = ".js-tab-content";
 
 export default class Tabs {
@@ -24,8 +24,8 @@ export default class Tabs {
     const btnClicked = evt.target;
     const tabToOpenId = btnClicked.getAttribute("aria-controls");
 
-   this._updateControlsAttrs(btnClicked, this._controlBtns);
-   this._updateTabsAttrs(tabToOpenId, this._contentBlocks);
+    this._updateControlsAttrs(btnClicked, this._controlBtns);
+    this._updateTabsAttrs(tabToOpenId, this._contentBlocks);
 
     this._contentBlocks.forEach(function (tab) {
       if (!tab.hasAttribute("hidden")) tab.setAttribute("hidden", true);

@@ -1,86 +1,110 @@
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="dist/css/bundle.css">
-        <title>front-end-dev_ASh</title>
-    </head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="dist/css/bundle.css" />
+    <title>front-end-dev_ASh</title>
+  </head>
+  <body>
     <section class="c-constructor">
-        <form class="c-constructor__form c-form"
-              name="constructor-form"
-              aria-label="Configures The MacBook.">
-            <div class="c-form__tabs c-tabs js-tabs-container">
-                <nav class="c-tabs__nav"
-                     role="tablist"
-                     aria-label="Switches configurator tabs">
-                    <button class="js-open-tab c-tabs__switch c-tabs__switch_active"
-                            id="c-tab-type-btn"
-                            type="button"
-                            role="tab"
-                            aria-selected="true"
-                            tabindex="-1"
-                            aria-controls="c-tab-type">
-                        Тип устройства
-                    </button>
-                    <button class="js-open-tab c-tabs__switch"
-                            id="c-tab-props-btn"
-                            type="button"
-                            role="tab"
-                            aria-selected="false"
-                            tabindex="0"
-                            aria-controls="c-tab-props">
-                        Характеристики
-                    </button>
-                    <button class="js-open-tab c-tabs__switch"
-                            id="c-tab-set-btn"
-                            type="button"
-                            role="tab"
-                            aria-selected="false"
-                            tabindex="0"
-                            aria-controls="c-tab-set">
-                        Комплектация
-                    </button>
-                </nav>
-                <section class="js-tab-content c-tabs__content c-tabs__content_active js-tab-type"
-                         id="c-tab-type"
-                         tabindex="0"
-                         role="tabpanel"
-                         aria-labelledby="c-tab-type-btn">
-                </section>
-                <section class="js-tab-content c-tabs__content js-tab-props"
-                         id="c-tab-props"
-                         tabindex="0"
-                         role="tabpanel"
-                         aria-labelledby="c-tab-props-btn"
-                         hidden>
-                </section>
-                <section class="js-tab-content c-tabs__content js-tab-set"
-                         tabindex="0"
-                         role="tabpanel"
-                         aria-labelledby="c-tab-set-btn"
-                         id="c-tab-set"
-                         hidden>
-                </section>
-            </div>
-        </form>
+      <form
+        class="c-constructor__form c-form"
+        name="constructor-form"
+        aria-label="Configures The MacBook."
+      >
+        <div class="c-form__tabs c-tabs js-tabs-container">
+          <nav
+            class="c-tabs__nav"
+            role="tablist"
+            aria-label="Switches configurator tabs"
+          >
+            <button
+              class="js-open-tab c-tabs__switch c-tabs__switch_active"
+              id="c-tab-type-btn"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              tabindex="-1"
+              aria-controls="c-tab-type"
+            >
+              Тип устройства
+            </button>
+            <button
+              class="js-open-tab c-tabs__switch"
+              id="c-tab-props-btn"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              tabindex="0"
+              aria-controls="c-tab-props"
+            >
+              Характеристики
+            </button>
+            <button
+              class="js-open-tab c-tabs__switch"
+              id="c-tab-set-btn"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              tabindex="0"
+              aria-controls="c-tab-set"
+            >
+              Комплектация
+            </button>
+          </nav>
+          <section
+            class="js-tab-content c-tabs__content c-tabs__content_active js-tab-type"
+            id="c-tab-type"
+            tabindex="0"
+            role="tabpanel"
+            aria-labelledby="c-tab-type-btn"
+          ></section>
+          <section
+            class="js-tab-content c-tabs__content js-tab-props"
+            id="c-tab-props"
+            tabindex="0"
+            role="tabpanel"
+            aria-labelledby="c-tab-props-btn"
+            hidden
+          ></section>
+          <section
+            class="js-tab-content c-tabs__content js-tab-set"
+            tabindex="0"
+            role="tabpanel"
+            aria-labelledby="c-tab-set-btn"
+            id="c-tab-set"
+            hidden
+          ></section>
+        </div>
+      </form>
+      <article class="c-constructor__results c-results">
+        <h2 class="c-results__title">Macbook</h2>
+        <p class="c-results__inner js-form-results"></p>
+      </article>
     </section>
 
-    <template class="js-fieldset-template">
-        <fieldset class="c-form__fieldset c-fieldset js-fieldset">
-            <legend class="c-fieldset__title js-fieldset-title"></legend>
-            <div class="c-fieldset__inner js-fieldset-inner"></div>
+    <template class="js-spoiler-template">
+      <details class="c-spoiler">
+        <summary class="c-spoiler__title"></summary>
+        <fieldset class="c-form__fieldset c-fieldset">
+          <legend class="c-fieldset__title"></legend>
+          <ul class="c-fieldset__inner"></ul>
         </fieldset>
+      </details>
     </template>
 
     <template class="js-field-template">
-        <label class="c-fieldset__label js-radio-label">
-            <input class="js-radio-input" type="radio" name="" id="">
+      <li>
+        <label class="c-fieldset__label">
+          <input class="c-fieldset__input" type="radio" name="" id="" value="" />
         </label>
+      </li>
     </template>
 
     <script src="./dist/js/bundle.js"></script>
-</body>
+  </body>
 </html>

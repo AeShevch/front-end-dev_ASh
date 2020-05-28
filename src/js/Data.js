@@ -286,6 +286,4 @@ export default class Data {
       ])
     );
   }
-
-
 }

@@ -1,14 +1,9 @@
 import Tabs from "./Tabs";
 import Data from "./Data";
 
-const JSON_URL = "https://www.iport.ru/upload/front/data.json";
+import Spoiler from "./Spoiler";
 
-const fieldsetTemplate = document
-  .querySelector(".js-fieldset-template")
-  .content.querySelector("fieldset");
-const fieldTemplate = document
-  .querySelector(".js-field-template")
-  .content.querySelector("label");
+const JSON_URL = "https://www.iport.ru/upload/front/data.json";
 
 // Initializing tabs
 const configuratorTabs = new Tabs(".js-tabs-container");
@@ -18,58 +13,53 @@ const tabPropsElement = document.querySelector(".js-tab-props");
 const tabSetElement = document.querySelector(".js-tab-set");
 
 // Receiving data
+// TODO Изначально планировалось, что json будет браться аяксом с сервера,
+// Компонент Data получает json и возвращает promise,
+// Но сейчас получение данных закомментировано и компонент просто отдаёт json
+// Как будто это проект в прод и как бэк подготовит сервер, мы раскомментируем
 const data = new Data(JSON_URL);
 data.receive().then((data) => {
+  // Filling form tabs
+  // Creating tabs fragments
   const tabTypeFragment = document.createDocumentFragment();
   const tabPropsFragment = document.createDocumentFragment();
   const tabSetFragment = document.createDocumentFragment();
 
+  // Rendering spoilers, filling the fragments
   data.forEach((prop) => {
-    let fieldsetHtml = fieldsetTemplate.cloneNode(true);
+    const spoilerHtml = new Spoiler().render(prop);
 
-    fieldsetHtml.querySelector(".js-fieldset-title").textContent = prop.title;
-
-    const fieldsContainerElement = fieldsetHtml.querySelector(
-      ".js-fieldset-inner"
-    );
-    prop.config.forEach((item) => {
-      let field = fieldTemplate.cloneNode(true);
-      field.append(item.text);
-
-      const inputElement = field.querySelector(".js-radio-input");
-      inputElement.id = item.id;
-      inputElement.name = prop.code;
-
-      fieldsContainerElement.append(field);
-    });
-
+    // Inserting elements in fragments
     switch (prop.code) {
       case "model":
-        tabTypeFragment.append(fieldsetHtml);
+        tabTypeFragment.append(spoilerHtml);
         break;
       case "mouse":
       case "keyboard":
-        tabSetFragment.append(fieldsetHtml);
+        tabSetFragment.append(spoilerHtml);
         break;
       default:
-        tabPropsFragment.append(fieldsetHtml);
+        tabPropsFragment.append(spoilerHtml);
         break;
     }
   });
 
+  // Inserting fragments in to tabs
   tabTypeElement.appendChild(tabTypeFragment);
   tabPropsElement.appendChild(tabPropsFragment);
   tabSetElement.appendChild(tabSetFragment);
 });
-const formElement = document.forms["constructor-form"];
 
+const formElement = document.forms["constructor-form"];
+const resultsElement = document.querySelector(".js-form-results");
+
+/**
+ * Form update handler
+ * Updates the result value
+ */
 const onFormChange = () => {
-  let result = '';
-  let formData = Array.from(new FormData(formElement).keys());
-  formData.forEach((fieldName) => {
-    result += formElement.querySelector(`[name="${fieldName}"]`).nextSibling.textContent.trim() + ", ";
-  });
-  result.trim();
-  console.log(result);
+  const resultsArr = Array.from(new FormData(formElement).values());
+
+  resultsElement.textContent = resultsArr.join(", ");
 };
-formElement.addEventListener("change", onFormChange)
+formElement.addEventListener("change", onFormChange);
