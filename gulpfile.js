@@ -14,7 +14,7 @@ const browserSync = require("browser-sync").create();
 
 function scss() {
   return gulp
-    .src(["src/scss/*.scss"])
+    .src(["src/scss/main.scss"])
     .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(sass())
@@ -29,7 +29,7 @@ function scss() {
       })
     )
     .pipe(concat("bundle.css"))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write(""))
     .pipe(gulp.dest("dist/css"))
     .pipe(browserSync.stream());
 }

@@ -11,12 +11,15 @@ export default class Field {
   // Rendering field
   render(item) {
     let fieldElement = this._template.cloneNode(true);
-    fieldElement.querySelector("label").append(item.text);
+
+    const labelElement = fieldElement.querySelector("label");
+    labelElement.textContent = item.text;
+    labelElement.setAttribute("for", `property-${this._prop.code}-${item.id}`);
+
     const inputElement = fieldElement.querySelector("input");
-    inputElement.id = item.id;
+    inputElement.id = `property-${this._prop.code}-${item.id}`;
     inputElement.name = this._prop.code;
     inputElement.value = JSON.stringify(item);
-    // if (item.add === false) inputElement.value = "";
 
     return fieldElement;
   }

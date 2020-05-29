@@ -1,0 +1,36 @@
+.c-constructor {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0 calc(var(--gap-m) * -1) calc(var(--gap-m) * -1) 0;
+  }
+
+  &__item {
+    flex-grow: 1;
+    flex-shrink: 1;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--indent-m);
+    box-shadow: var(--shadow);
+    margin: 0 var(--gap-m) var(--gap-m) 0;
+
+    &_form {
+      flex-basis: 700px;
+    }
+
+    &_results {
+      flex-basis: 300px;
+    }
+  }
+}

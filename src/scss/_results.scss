@@ -1,0 +1,8 @@
+.c-results {
+  position: sticky;
+  top: var(--gap-m);
+
+  &__title {
+    font-size: 1.2rem;
+  }
+}

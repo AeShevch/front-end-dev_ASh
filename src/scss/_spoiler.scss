@@ -1,0 +1,19 @@
+.c-spoiler {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+
+  &:not(:last-of-type) {
+    margin-bottom: var(--gap-s);
+  }
+
+  &__title {
+    padding: var(--indent-xs) var(--indent-s);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: -1px;
+    cursor: pointer;
+  }
+
+  &__inner {
+    padding: var(--indent-xs) var(--indent-s);
+  }
+}

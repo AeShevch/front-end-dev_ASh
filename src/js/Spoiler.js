@@ -9,7 +9,7 @@ export default class Spoiler {
     // Cloning new spoiler template
     let spoilerHtml = spoilerTemplate.cloneNode(true);
     // Inserting titles
-    spoilerHtml.querySelector("legend").textContent = prop.title;
+    spoilerHtml.querySelector("legend").textContent = `Доступные варианты свойства «${prop.title}»`;
     spoilerHtml.querySelector("summary").textContent = prop.title;
 
     /**

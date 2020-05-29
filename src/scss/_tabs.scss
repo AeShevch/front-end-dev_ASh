@@ -1,0 +1,29 @@
+.c-tabs {
+  &__nav {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--gap-m);
+  }
+
+  &__switch {
+    @include resetBtn;
+    border: 1px solid transparent;
+    padding: var(--indent-xs) var(--indent-s);
+    margin-bottom: -1px;
+    color: var(--muted-text-color);
+
+    &:focus {
+      outline: none;
+      color: var(--accent-color);
+    }
+
+    &_active {
+      background-color: #fff;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      border-color: var(--border-color);
+      border-bottom-color: transparent;
+      color: var(--main-text-color);
+
+    }
+  }
+}

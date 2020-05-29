@@ -1,0 +1,16 @@
+.c-property {
+  &:not(:last-of-type) {
+    margin-bottom: var(--gap-s);
+  }
+
+  &__label,
+  &__input {
+    cursor: pointer;
+  }
+
+  &__input {
+    &:checked + .c-property__label {
+      color: var(--accent-color);
+    }
+  }
+}

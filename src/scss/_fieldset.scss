@@ -1,0 +1,14 @@
+.c-fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--indent-xs) var(--indent-s);
+
+  &__title {
+    color: var(--muted-text-color);
+  }
+
+  &__inner {
+    @include listReset;
+    padding: var(--indent-xs) var(--indent-s);
+  }
+}
